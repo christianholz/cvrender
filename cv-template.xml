@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>{{title}}</title>
+  <style>
+    body { font-family: Georgia, serif; margin: 2rem auto; max-width: 980px; line-height: 1.35; }
+    h1, h2, h3 { margin: 0.3rem 0 0.6rem 0; }
+    .meta { color: #444; margin-top: 0; }
+    section { margin-top: 1.4rem; }
+    .entry { margin: 0.6rem 0; }
+    .dates { color: #333; font-size: 0.95em; margin-bottom: 0.2rem; }
+    .prefix { font-weight: bold; margin-right: 0.4rem; }
+    .i { font-style: italic; }
+    .sub { margin-top: 0.8rem; }
+    ul { margin: 0.2rem 0 0.8rem 1.2rem; padding: 0; }
+    li { margin: 0.2rem 0; }
+  </style>
+</head>
+<body>
+  <main class="cv">
+    <h1>{{title}}</h1>
+    <p class="meta"><cv:val if="date"/></p>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        {{contact/name}} |
+        <a href="mailto:{{contact/email}}">{{contact/email}}</a> |
+        <a href="{{contact/url}}"><cv:val if="contact/url_show" else="contact/url"/></a>
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <cv:for in="education" sort="year,desc">
+        <article class="entry">
+          <cv:ex fn="dates"/>
+          <div>
+            <strong>{{title}}</strong>
+            <cv:if t="institution">, {{institution}}</cv:if>.
+            <cv:if t="adviser"> Adviser: {{adviser}}.</cv:if>
+            <cv:if t="location"> {{location}}.</cv:if>
+          </div>
+        </article>
+      </cv:for>
+    </section>
+
+    <section id="experiences">
+      <h2>Employment and Practical Experiences</h2>
+
+      <cv:if t="experiences">
+        <div class="sub">
+          <h3>Past Employment (Industry / Applied Roles)</h3>
+          <cv:for in="experiences" sort="year,desc">
+            <article class="entry">
+              <cv:ex fn="dates"/>
+              <div>
+                <strong>{{title}}</strong>
+                <cv:if t="company"> at {{company}}</cv:if>
+                <cv:if t="location">, {{location}}</cv:if>.
+              </div>
+              <cv:if t="topic"><div>{{topic}}</div></cv:if>
+            </article>
+          </cv:for>
+        </div>
+      </cv:if>
+
+      <cv:if t="internships">
+        <div class="sub">
+          <h3>Research Visits and Internships</h3>
+          <cv:for in="internships" sort="year,desc">
+            <article class="entry">
+              <cv:ex fn="dates"/>
+              <div>
+                <strong>{{title}}</strong>
+                <cv:if t="company"> at {{company}}</cv:if>
+                <cv:if t="location">, {{location}}</cv:if>.
+              </div>
+              <cv:if t="topic"><div>{{topic}}</div></cv:if>
+            </article>
+          </cv:for>
+        </div>
+      </cv:if>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <cv:if t="publications/journals">
+        <div class="sub">
+          <h3>Journal Papers</h3>
+          <cv:for in="publications/journals" sort="year,desc">
+            <article class="entry">
+              <span class="prefix">J.<cv:val of="{{$last}}-{{$index}}+1"/></span>
+              {{authors}}. <strong>{{title}}</strong>. <span class="i">{{venue_long}}</span>
+              (<cv:val of="venue_short" proc="{{}}.replace(' ', '&nbsp;')"/>)
+              <cv:val if="location" pf=", "/>. <cv:val if="dates" sf=", "/>{{year}}.
+            </article>
+          </cv:for>
+        </div>
+      </cv:if>
+
+      <cv:if t="publications/papers">
+        <div class="sub">
+          <h3>Conference Papers</h3>
+          <cv:for in="publications/papers" sort="year,desc">
+            <article class="entry">
+              <span class="prefix">C.<cv:val of="{{$last}}-{{$index}}+1"/></span>
+              {{authors}}. <strong>{{title}}</strong>. <span class="i">Proceedings of {{venue_long}}</span>
+              (<cv:val of="venue_short" proc="{{}}.replace(' ', '&nbsp;')"/>)
+              <cv:val if="location" pf=", "/>. <cv:val if="dates" proc="{{}}.replace('-', '&#x2013;')" sf=", "/>{{year}}.
+            </article>
+          </cv:for>
+        </div>
+      </cv:if>
+    </section>
+
+    <section id="talks">
+      <h2>Talks</h2>
+      <cv:for in="talks" sort="year,desc">
+        <article class="entry">
+          <cv:ex fn="dates"/>
+          <div>
+            <strong>{{title}}</strong>.
+            <cv:if t="event">{{event}}</cv:if><cv:val if="location" pf=", "/><cv:val if="year" pf=", "/>.
+          </div>
+        </article>
+      </cv:for>
+    </section>
+
+    <section id="mentoring">
+      <h2>Mentoring</h2>
+
+      <cv:if t="mentoring/phd_students">
+        <div class="sub">
+          <h3>PhD Students Mentored</h3>
+          <ul>
+            <cv:for in="mentoring/phd_students">
+              <li>
+                {{name}}<cv:val if="period" pf=" (" sf=")"/><cv:val if="topic" pf="&#x2013;"/>.
+              </li>
+            </cv:for>
+          </ul>
+        </div>
+      </cv:if>
+
+      <cv:if t="mentoring/postdocs">
+        <div class="sub">
+          <h3>Postdocs Mentored</h3>
+          <ul>
+            <cv:for in="mentoring/postdocs">
+              <li>
+                {{name}}<cv:val if="period" pf=" (" sf=")"/><cv:val if="topic" pf="&#x2013;"/>.
+              </li>
+            </cv:for>
+          </ul>
+        </div>
+      </cv:if>
+    </section>
+
+    <section id="theses">
+      <h2>Theses Advised</h2>
+      <cv:for in="theses_advised" sort="year,desc">
+        <article class="entry">
+          <span class="prefix">T.<cv:val of="{{$last}}-{{$index}}+1"/></span>
+          {{student}}. <strong>{{title}}</strong>.
+          <cv:val if="type" sf=", "/><cv:val if="institution"/><cv:val if="year" pf=", " sf="."/>
+        </article>
+      </cv:for>
+    </section>
+  </main>
+</body>
+</html>
+
+<cv:func id="dates">
+  <div class="dates">
+    <cv:ite t="begin">
+      <cv:true>
+        <cv:val of="begin"/>&#x2013;<cv:val if="end"/>
+      </cv:true>
+      <cv:false>
+        <cv:val if="end"/>
+      </cv:false>
+    </cv:ite>
+  </div>
+</cv:func>

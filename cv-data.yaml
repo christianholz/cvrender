@@ -1,0 +1,128 @@
+title: "Sample Curriculum Vitae"
+date: "January 2026"
+
+contact:
+  name: "Alex Example"
+  email: "alex@example.test"
+  url: "https://example.test"
+  url_show: "example.test"
+
+education:
+  - title: "PhD in Example Systems"
+    institution: "Example University"
+    location: "Sample City"
+    adviser: "Prof. Placeholder"
+    begin: "2021"
+    end: "2025"
+    year: 2025
+  - title: "MSc in Demo Engineering"
+    institution: "Demo Institute"
+    location: "Demo Town"
+    begin: "2019"
+    end: "2021"
+    year: 2021
+
+experiences:
+  - title: "Machine Learning Engineer"
+    company: "Example Labs"
+    location: "Sample City"
+    topic: "Applied ML systems in healthcare workflows."
+    begin: "2023"
+    end: "2024"
+    year: 2024
+  - title: "Research Engineer"
+    company: "Prototype Works"
+    location: "Remote"
+    topic: "Human-AI collaboration and deployment pipelines."
+    begin: "2022"
+    end: "2023"
+    year: 2023
+
+internships:
+  - title: "Research Intern"
+    company: "Innovation Studio"
+    location: "Example Bay"
+    topic: "Interactive systems and experimental tooling."
+    begin: "2020"
+    end: "2020"
+    year: 2020
+  - title: "Software Engineering Intern"
+    company: "Systems Foundry"
+    location: "Metro City"
+    topic: "Data integration and observability."
+    begin: "2018"
+    end: "2018"
+    year: 2018
+
+publications:
+  journals:
+    - authors: "Alex Example and Co Author"
+      title: "Placeholder Journal Article"
+      venue_long: "Journal of Synthetic Results"
+      venue_short: "JSR '25"
+      location: "Virtual"
+      dates: "March 2025"
+      year: 2025
+    - authors: "Alex Example and Collaborator"
+      title: "Methods for Repeatable CV Generation"
+      venue_long: "Transactions on Structured Documents"
+      venue_short: "TSD '24"
+      location: "Online"
+      dates: "July 2024"
+      year: 2024
+
+  papers:
+    - authors: "Alex Example and Teammate"
+      title: "Conference Placeholder"
+      venue_long: "Conference on Example Systems"
+      venue_short: "CES '24"
+      location: "Sample City"
+      dates: "May 2024"
+      year: 2024
+    - authors: "Alex Example and Research Group"
+      title: "Composable Workflows for Academic Profiles"
+      venue_long: "International Conference on Research Tooling"
+      venue_short: "ICRT '23"
+      location: "Demo Town"
+      dates: "September 2023"
+      year: 2023
+
+talks:
+  - title: "Scalable CV Maintenance for Academic Teams"
+    event: "Research Software Seminar"
+    location: "Example University"
+    begin: "2025"
+    end: "2025"
+    year: 2025
+  - title: "Structured Scholarly Profiles"
+    event: "Open Science Colloquium"
+    location: "Virtual"
+    begin: "2024"
+    end: "2024"
+    year: 2024
+
+mentoring:
+  phd_students:
+    - name: "Dana Student"
+      period: "2024-present"
+      topic: "Evaluation methods for interactive AI tools"
+    - name: "Riley Researcher"
+      period: "2023-present"
+      topic: "Data-centric workflows for scholarly systems"
+
+  postdocs:
+    - name: "Casey Postdoc"
+      period: "2025-present"
+      topic: "Reproducible publication pipelines"
+
+theses_advised:
+  - student: "Jamie Thesis"
+    title: "Template-Driven Academic Portfolio Generation"
+    type: "Master's Thesis"
+    institution: "Example University"
+    year: 2025
+  - student: "Morgan Thesis"
+    title: "Declarative Rendering of Research Profiles"
+    type: "Bachelor's Thesis"
+    institution: "Demo Institute"
+    year: 2024

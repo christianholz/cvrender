@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Build artifacts
+/cvrender
+dist/
+
+# Generated output
+*.html
+*.pdf
+*.tmp
+*.out
+
+# Go test/build leftovers
+*.test
+*.prof
+coverage.out
+
+# Editors/IDE
+.vscode/
+.idea/
+
+# Temp files
+tmp/
+*.swp
